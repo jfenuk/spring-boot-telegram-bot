@@ -3,7 +3,7 @@
 pipeline {
     agent {
         docker {
-            image 'amazoncorretto/amazoncorretto:18-alpine-jdk'
+            image 'amazoncorretto:18'
         }
     }
 
