@@ -1,10 +1,13 @@
 #!groovy
 
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'amazoncorretto/amazoncorretto:18-alpine-jdk'
+        }
+    }
 
     tools {
-        jdk 'jdk18'
         maven "3.6.0" // You need to add a maven with name "3.6.0" in the Global Tools Configuration page
     }
 
