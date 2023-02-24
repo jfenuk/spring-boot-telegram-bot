@@ -13,6 +13,13 @@ jobs:
         with:
           java-version: '18'
           distribution: 'zulu'
+      - name: Install Docker 
+        uses: docker-practice/actions-setup-docker@master
+        timeout-minutes: 12
+      - run: |
+          set -x
+          docker version
+          docker run --rm hello-world
       - name: Set up Maven
         uses: stCarolas/setup-maven@v4.5
         with:
