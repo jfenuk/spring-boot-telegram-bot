@@ -19,3 +19,5 @@ jobs:
           maven-version: 3.6.0      
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package
+      - name: Build image
+        run: mvn spring-boot:build-image
