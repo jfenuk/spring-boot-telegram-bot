@@ -1,10 +1,9 @@
 #!groovy
 
 pipeline {
-    agent {
-        docker {
-            image 'maven:3.8.5-openjdk-18'
-        }
+    agent any
+    tools {
+        maven "3.6.0" // You need to add a maven with name "3.6.0" in the Global Tools Configuration page
     }
 
     stages {
