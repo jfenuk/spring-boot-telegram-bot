@@ -93,10 +93,6 @@
         "family": "YF86-bot-task-definition",
         "executionRoleArn": "arn:aws:iam::212516671447:role/ecs-task-execution-role-secret",
         "networkMode": "awsvpc",
-        "compatibilities": [
-          "EC2",
-          "FARGATE"
-        ],
         "requiresCompatibilities": [
           "FARGATE"
         ],
