@@ -21,6 +21,33 @@
     }
   },
   "Resources": {
+    "ECSCluster": {
+      "Type": "AWS::ECS::Cluster",
+      "Properties": {
+        "ClusterName": {
+          "Ref": "ECSClusterName"
+        },
+        "CapacityProviders": [
+          "FARGATE",
+          "FARGATE_SPOT"
+        ],
+        "ClusterSettings": [
+          {
+            "Name": "containerInsights",
+            "Value": "disabled"
+          }
+        ],
+        "Configuration": {
+          "ExecuteCommandConfiguration": {
+            "Logging": "DEFAULT"
+          }
+        },
+        "ServiceConnectDefaults": {
+          "Namespace": "YF86-bot"
+        },
+        "Tags": []
+      }
+    },
     "ECSTaskDefinition": {
       "Type": "AWS::ECS::TaskDefinition",
       "Properties": {
@@ -113,34 +140,6 @@
         "registeredAt": "2023-02-25T21:44:16.226Z",
         "registeredBy": "arn:aws:iam::212516671447:root",
         "tags": []
-      }
-      }
-    },
-    "ECSCluster": {
-      "Type": "AWS::ECS::Cluster",
-      "Properties": {
-        "ClusterName": {
-          "Ref": "ECSClusterName"
-        },
-        "CapacityProviders": [
-          "FARGATE",
-          "FARGATE_SPOT"
-        ],
-        "ClusterSettings": [
-          {
-            "Name": "containerInsights",
-            "Value": "disabled"
-          }
-        ],
-        "Configuration": {
-          "ExecuteCommandConfiguration": {
-            "Logging": "DEFAULT"
-          }
-        },
-        "ServiceConnectDefaults": {
-          "Namespace": "YF86-bot"
-        },
-        "Tags": []
       }
     }
   },
