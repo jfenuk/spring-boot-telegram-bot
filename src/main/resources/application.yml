@@ -1,2 +1,2 @@
 telegram:
-    token: 6067961010:AAEHjkhTKK14S7IVQEGwzRn7QsM_fRInp9A
+    token: ${TELEGRAM_TOKEN}
