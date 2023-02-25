@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MainConfiguration {
 
-    @Value("${TELEGRAM_TOKEN}")
+    @Value("${telegram.token}")
     private String telegramToken;
 
     @Bean
