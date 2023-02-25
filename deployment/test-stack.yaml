@@ -73,10 +73,6 @@
               }
             ],
             "essential": true,
-            "environment": [],
-            "environmentFiles": [],
-            "mountPoints": [],
-            "volumesFrom": [],
             "secrets": [
               {
                 "name": "telegram.token",
@@ -97,10 +93,7 @@
         "family": "YF86-bot-task-definition",
         "executionRoleArn": "arn:aws:iam::212516671447:role/ecs-task-execution-role-secret",
         "networkMode": "awsvpc",
-        "revision": 6,
-        "volumes": [],
         "status": "ACTIVE",
-        "placementConstraints": [],
         "compatibilities": [
           "EC2",
           "FARGATE"
