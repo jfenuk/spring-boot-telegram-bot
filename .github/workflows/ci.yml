@@ -26,9 +26,6 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
       
-  #    - name: Build image
-  #     run: docker build --build-arg JAR_FILE=target/*.jar -t myorg/myapp .
-
       - name: Log in to Docker Hub
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
@@ -49,3 +46,10 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: JAR_FILE=target/*.jar
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY_SECRET }}
+          aws-region: eu-west-1
