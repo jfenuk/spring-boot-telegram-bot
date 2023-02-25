@@ -21,6 +21,101 @@
     }
   },
   "Resources": {
+    "ECSTaskDefinition": {
+      "Type": "AWS::ECS::TaskDefinition",
+      "Properties": {
+        "containerDefinitions": [
+          {
+            "name": "YF86-bot",
+            "image": "docker.io/jfenuk/yf86-demo:main",
+            "cpu": 0,
+            "portMappings": [
+              {
+                "name": "YF86-bot-80-tcp",
+                "containerPort": 80,
+                "hostPort": 80,
+                "protocol": "tcp",
+                "appProtocol": "http"
+              },
+              {
+                "name": "YF86-bot-443-tcp",
+                "containerPort": 443,
+                "hostPort": 443,
+                "protocol": "tcp",
+                "appProtocol": "http"
+              }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "secrets": [
+              {
+                "name": "telegram.token",
+                "valueFrom": "arn:aws:secretsmanager:eu-west-1:212516671447:secret:prod/yf86-demo/bot"
+              }
+            ],
+            "logConfiguration": {
+              "logDriver": "awslogs",
+              "options": {
+                "awslogs-create-group": "true",
+                "awslogs-group": "/ecs/YF86-bot-task-definition",
+                "awslogs-region": "eu-west-1",
+                "awslogs-stream-prefix": "ecs"
+              }
+            }
+          }
+        ],
+        "family": "YF86-bot-task-definition",
+        "executionRoleArn": "arn:aws:iam::212516671447:role/ecs-task-execution-role-secret",
+        "networkMode": "awsvpc",
+        "revision": 6,
+        "volumes": [],
+        "status": "ACTIVE",
+        "requiresAttributes": [
+          {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+          },
+          {
+            "name": "ecs.capability.execution-role-awslogs"
+          },
+          {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+          },
+          {
+            "name": "ecs.capability.secrets.asm.environment-variables"
+          },
+          {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+          },
+          {
+            "name": "ecs.capability.task-eni"
+          },
+          {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+          }
+        ],
+        "placementConstraints": [],
+        "compatibilities": [
+          "EC2",
+          "FARGATE"
+        ],
+        "requiresCompatibilities": [
+          "FARGATE"
+        ],
+        "cpu": "1024",
+        "memory": "2048",
+        "runtimePlatform": {
+          "cpuArchitecture": "X86_64",
+          "operatingSystemFamily": "LINUX"
+        },
+        "registeredAt": "2023-02-25T21:44:16.226Z",
+        "registeredBy": "arn:aws:iam::212516671447:root",
+        "tags": []
+      }
+      }
+    },
     "ECSCluster": {
       "Type": "AWS::ECS::Cluster",
       "Properties": {
