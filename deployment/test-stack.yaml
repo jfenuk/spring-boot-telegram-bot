@@ -51,7 +51,7 @@
     "ECSTaskDefinition": {
       "Type": "AWS::ECS::TaskDefinition",
       "Properties": {
-        "containerDefinitions": [
+        "ContainerDefinitions": [
           {
             "name": "YF86-bot",
             "image": "docker.io/jfenuk/yf86-demo:main",
@@ -89,7 +89,20 @@
               }
             }
           }
-        ]
+        ],
+        "Cpu": "1024",
+        "ExecutionRoleArn": "arn:aws:iam::212516671447:role/ecs-task-execution-role-secret",
+        "Family": "YF86-bot-task-definition",
+        "Memory": "2048",
+        "NetworkMode": "awsvpc",
+        "RequiresCompatibilities": [
+          "FARGATE"
+        ],
+        "RuntimePlatform": {
+          "cpuArchitecture": "X86_64",
+          "operatingSystemFamily": "LINUX"
+        },
+        "Tags": []
       }
     }
   },
