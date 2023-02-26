@@ -89,20 +89,7 @@
               }
             }
           }
-        ],
-        "family": "YF86-bot-task-definition",
-        "executionRoleArn": "arn:aws:iam::212516671447:role/ecs-task-execution-role-secret",
-        "networkMode": "awsvpc",
-        "requiresCompatibilities": [
-          "FARGATE"
-        ],
-        "cpu": "1024",
-        "memory": "2048",
-        "runtimePlatform": {
-          "cpuArchitecture": "X86_64",
-          "operatingSystemFamily": "LINUX"
-        },
-        "tags": []
+        ]
       }
     }
   },
