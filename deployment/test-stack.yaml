@@ -53,35 +53,35 @@
       "Properties": {
         "ContainerDefinitions": [
           {
-            "name": "YF86-bot",
-            "image": "docker.io/jfenuk/yf86-demo:main",
-            "cpu": 0,
-            "portMappings": [
+            "Name": "YF86-bot",
+            "Image": "docker.io/jfenuk/yf86-demo:main",
+            "Cpu": 0,
+            "PortMappings": [
               {
-                "name": "YF86-bot-80-tcp",
-                "containerPort": 80,
-                "hostPort": 80,
-                "protocol": "tcp",
-                "appProtocol": "http"
+                "Name": "YF86-bot-80-tcp",
+                "ContainerPort": 80,
+                "HostPort": 80,
+                "Protocol": "tcp",
+                "AppProtocol": "http"
               },
               {
-                "name": "YF86-bot-443-tcp",
-                "containerPort": 443,
-                "hostPort": 443,
-                "protocol": "tcp",
-                "appProtocol": "http"
+                "Name": "YF86-bot-443-tcp",
+                "ContainerPort": 443,
+                "HostPort": 443,
+                "Protocol": "tcp",
+                "AppProtocol": "http"
               }
             ],
-            "essential": true,
-            "secrets": [
+            "Essential": true,
+            "Secrets": [
               {
-                "name": "telegram.token",
-                "valueFrom": "arn:aws:secretsmanager:eu-west-1:212516671447:secret:prod/yf86-demo/bot"
+                "Name": "telegram.token",
+                "ValueFrom": "arn:aws:secretsmanager:eu-west-1:212516671447:secret:prod/yf86-demo/bot"
               }
             ],
-            "logConfiguration": {
-              "logDriver": "awslogs",
-              "options": {
+            "LogConfiguration": {
+              "LogDriver": "awslogs",
+              "Options": {
                 "awslogs-create-group": "true",
                 "awslogs-group": "/ecs/YF86-bot-task-definition",
                 "awslogs-region": "eu-west-1",
@@ -99,8 +99,8 @@
           "FARGATE"
         ],
         "RuntimePlatform": {
-          "cpuArchitecture": "X86_64",
-          "operatingSystemFamily": "LINUX"
+          "CpuArchitecture": "X86_64",
+          "OperatingSystemFamily": "LINUX"
         },
         "Tags": []
       }
